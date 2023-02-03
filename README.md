@@ -1,1 +1,1 @@
-# Infinite-Scroller-Game
+# Side_Scroller_Game_Project
