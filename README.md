@@ -1,1 +1,3 @@
-# Side_Scroller_Game_Project
+# Side Scroller Game Project
+
+resembles flappy bird
