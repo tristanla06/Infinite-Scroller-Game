@@ -1,4 +1,4 @@
-# Side Scroller Game Project
+# Learn to Fly!
 
 resembles flappy bird
 
