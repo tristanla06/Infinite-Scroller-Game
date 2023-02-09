@@ -30,23 +30,6 @@ default_pos = 700
 jump = False
 player_dead = False
 
-class Background:
-    def __init__(self, image):
-        self.pic = pygame.image.load(image).convert()
-        self.pic = pygame.transform.scale(self.pic, (screen_width, screen_height))
-        self.width = self.pic.get_width()
-        self.tiles = round(screen_width / self.width) + 1
-        self.scroll = 0
-    def image_scroll(self, scroll_speed, ground_y):
-        for i in range(0, self.tiles):
-            # draw a new image one after the other
-            screen.blit(self.pic, (i * self.width + self.scroll, ground_y))
-        # scroll left
-        self.scroll -= scroll_speed
-        # restart scroll
-        if abs(self.scroll) > self.width:
-            self.scroll = 0
-
 # Parent Entity Class
 class Entity:
     def __init__(self, width, height, x_pos, y_pos):      
@@ -85,9 +68,6 @@ class User(Entity):
     def player_shift(self):
         self.rect.x += speed[0]
 
-# Call Background and Foreground Objects
-bg = Background('Assets/background_glacial_mountains.png')
-
 # Call Game Objects
 player_1 = User(80, 200, 50, 500)
 enemy_1 = Obstacle(80, 80, (screen_width + 40), 620)
@@ -98,7 +78,6 @@ def update_screen():
     # Background
     screen.fill(black)
     player_1.get_properties()
-    bg.image_scroll(2, 0)
     
     # Draw objects
     pygame.draw.rect(screen, red, player_1.rect)
